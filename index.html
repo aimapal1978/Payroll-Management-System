@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>  Payroll Management System </title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="logo-container">
+    <img src="logo.jpg" alt="Світ Сендвіч Logo">
+  </div>
+  <h1>Payroll Management System</h1>
+</header>
+
+<!-- قسم إضافة موظف جديد لأي قسم -->
+<div class="card">
+  <h2>Adding a new employee to the restaurant</h2>
+  <form id="addEmpForm" onsubmit="addNewEmployee(event)">
+    <div class="row" style="display: flex; gap: 10px;">
+      <div style="flex: 1;">
+        <label>Employee Name</label>
+        <input type="text" id="newNameInput" required placeholder="Enter the new employee's name">
+      </div>
+      <div style="flex: 1;">
+        <label>Select the section</label>
+        <select id="newDeptInput">
+          <option value="Chefs section">Chefs section</option>
+          <option value="Kitchen Staff section">Kitchen Staff section</option>
+          <option value="Cashier section">Cashier section</option>
+          <option value="Cleaning Staff section">Cleaning Staff section</option>
+        </select>
+      </div>
+      <div style="flex: 1;">
+        <label>Basic Salary (Single Shift)</label>
+        <input type="number" id="newBasePayInput" required placeholder="1300" value="1300">
+      </div>
+    </div>
+    <button type="submit">Adding a new employee</button>
+  </form>
+</div>
+
+<!-- جدول الرواتب والحركات -->
+<div class="card">
+  <h2>Salary Schedule </h2>
+  
+  <div class="table-responsive">
+    <table>
+      <thead>
+        <tr>
+          <th>Employee Name</th>
+          <th>Single-shift salary</th>
+          <th>Number of shift workdays</th>
+          <th>Number of full-time working days</th>
+          <th>Withdrawing a specific amount</th>
+          <th>Deduct</th>
+          <th>procedures</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody">
+        <!-- يتم تعبئة البيانات ديناميكياً هنا -->
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- نافذة عرض تفاصيل الراتب (Modal) -->
+<div id="salaryModal" class="modal">
+  <div class="modal-content">
+    <h3 id="modalTitle">Employee Salary Details</h3>
+    <div class="modal-details" id="modalBody">
+      <!-- التفاصيل تظهر هنا -->
+    </div>
+    <button style="width: 100%; margin-top: 10px;" onclick="closeModal()">close</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
